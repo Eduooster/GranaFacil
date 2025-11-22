@@ -1,5 +1,5 @@
 package org.example.granafacil.core.enums;
 
-public enum ObjetivoPrincipal {
+public enum ObjetivoFinanceiro {
     TESTEOBJ
 }

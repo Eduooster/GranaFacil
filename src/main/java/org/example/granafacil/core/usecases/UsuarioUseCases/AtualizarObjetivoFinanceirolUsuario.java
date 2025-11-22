@@ -1,21 +1,22 @@
 package org.example.granafacil.core.usecases.UsuarioUseCases;
 
 import org.example.granafacil.core.entities.Usuario;
-import org.example.granafacil.core.enums.FormaGerenciarFinancas;
-import org.example.granafacil.core.enums.PerfilFinanceiro;
+import org.example.granafacil.core.enums.ObjetivoFinanceiro;
 import org.example.granafacil.core.gateways.UsuarioGateway;
 
-public class AtualizarFormaGerenciarFinanancasUsuario {
+public class AtualizarObjetivoFinanceirolUsuario {
 
     private final UsuarioGateway usuarioGateway;
 
-    public AtualizarFormaGerenciarFinanancasUsuario(UsuarioGateway usuarioGateway) {
+    public AtualizarObjetivoFinanceirolUsuario(UsuarioGateway usuarioGateway) {
         this.usuarioGateway = usuarioGateway;
     }
 
-    public void execute(Usuario usuario, FormaGerenciarFinancas formaGerenciarFinancas) {
+    public void execute(Usuario usuario, ObjetivoFinanceiro objetivoFinanceiro) {
         Usuario usuarioBanco = usuarioGateway.buscarPorEmail(usuario.getEmail()).orElse(null);
-        usuarioBanco.setFinancas(formaGerenciarFinancas);
+
+        usuarioBanco.setObjetivo(objetivoFinanceiro);
         usuarioGateway.save(usuarioBanco);
+
     }
 }

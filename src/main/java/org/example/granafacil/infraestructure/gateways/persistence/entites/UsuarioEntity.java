@@ -4,7 +4,7 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.granafacil.core.enums.FormaGerenciarFinancas;
-import org.example.granafacil.core.enums.ObjetivoPrincipal;
+import org.example.granafacil.core.enums.ObjetivoFinanceiro;
 import org.example.granafacil.core.enums.PerfilFinanceiro;
 import org.hibernate.proxy.HibernateProxy;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,7 +34,7 @@ public class UsuarioEntity implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Nullable
-    private ObjetivoPrincipal objetivo;
+    private ObjetivoFinanceiro objetivo;
     @Nullable
     @Enumerated(EnumType.STRING)
     private FormaGerenciarFinancas financas;
@@ -100,11 +100,11 @@ public class UsuarioEntity implements UserDetails {
     }
 
     @Nullable
-    public ObjetivoPrincipal getObjetivo() {
+    public ObjetivoFinanceiro getObjetivo() {
         return objetivo;
     }
 
-    public void setObjetivo(@Nullable ObjetivoPrincipal objetivo) {
+    public void setObjetivo(@Nullable ObjetivoFinanceiro objetivo) {
         this.objetivo = objetivo;
     }
 

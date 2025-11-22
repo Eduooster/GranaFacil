@@ -2,7 +2,7 @@ package org.example.granafacil.infraestructure.gateways.persistence.adapters.Usu
 
 import org.example.granafacil.core.entities.Usuario;
 import org.example.granafacil.core.enums.FormaGerenciarFinancas;
-import org.example.granafacil.core.enums.ObjetivoPrincipal;
+import org.example.granafacil.core.enums.ObjetivoFinanceiro;
 import org.example.granafacil.core.enums.PerfilFinanceiro;
 import org.example.granafacil.core.gateways.UsuarioGateway;
 import org.example.granafacil.infraestructure.gateways.persistence.entites.UsuarioEntity;
@@ -11,7 +11,6 @@ import org.example.granafacil.infraestructure.mapper.UsuarioMapper;
 import org.example.granafacil.infraestructure.presentation.AutenticacaoController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -48,7 +47,7 @@ public class JpaUsuarioAdapter implements UsuarioGateway {
     }
 
     @Override
-    public void atualizarObjetivo(Usuario usuario, ObjetivoPrincipal objetivo) {
+    public void atualizarObjetivo(Usuario usuario, ObjetivoFinanceiro objetivo) {
         usuario.setObjetivo(objetivo);
         usuarioRepository.save(toEntity(usuario));
 

@@ -1,7 +1,7 @@
 package org.example.granafacil.core.entities;
 
 import org.example.granafacil.core.enums.FormaGerenciarFinancas;
-import org.example.granafacil.core.enums.ObjetivoPrincipal;
+import org.example.granafacil.core.enums.ObjetivoFinanceiro;
 import org.example.granafacil.core.enums.PerfilFinanceiro;
 
 public class Usuario {
@@ -12,7 +12,7 @@ public class Usuario {
     private String email;
     private String senhaHash;
 
-    private ObjetivoPrincipal objetivo;
+    private ObjetivoFinanceiro objetivo;
     private FormaGerenciarFinancas financas;
     private PerfilFinanceiro perfil;
 
@@ -21,7 +21,7 @@ public class Usuario {
     }
 
     public Usuario(Long id, String nome, String sobrenome, String email, String senhaHash,
-                   ObjetivoPrincipal objetivo, FormaGerenciarFinancas financas, PerfilFinanceiro perfil) {
+                   ObjetivoFinanceiro objetivo, FormaGerenciarFinancas financas, PerfilFinanceiro perfil) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -51,8 +51,8 @@ public class Usuario {
 
 
 
-    public ObjetivoPrincipal getObjetivo() { return objetivo; }
-    public void setObjetivo(ObjetivoPrincipal objetivo) { this.objetivo = objetivo; }
+    public ObjetivoFinanceiro getObjetivo() { return objetivo; }
+    public void setObjetivo(ObjetivoFinanceiro objetivo) { this.objetivo = objetivo; }
 
     public FormaGerenciarFinancas getFinancas() { return financas; }
     public void setFinancas(FormaGerenciarFinancas financas) { this.financas = financas; }

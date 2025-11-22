@@ -1,6 +1,5 @@
 package org.example.granafacil.infraestructure.config;
 
-import org.example.granafacil.core.entities.Usuario;
 import org.example.granafacil.core.gateways.PasswordEncoderGateway;
 import org.example.granafacil.core.gateways.TokenServiceGateway;
 import org.example.granafacil.core.gateways.UsuarioGateway;
@@ -24,13 +23,13 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public AtualizarObjetivoPrincipalUsuario atualizarObjetivoPrincipalUsuario(UsuarioGateway usuarioGateway) {
-        return new AtualizarObjetivoPrincipalUsuario(usuarioGateway);
+    public AtualizarObjetivoFinanceirolUsuario atualizarObjetivoFinanceiroUsuario(UsuarioGateway usuarioGateway) {
+        return new AtualizarObjetivoFinanceirolUsuario(usuarioGateway);
 
     }
     @Bean
-    public AtualizarFormaGerenciarFinanancasUsuario atualizarFormaGerenciarFinanancasUsuario(UsuarioGateway usuarioGateway) {
-        return new AtualizarFormaGerenciarFinanancasUsuario(usuarioGateway);
+    public AtualizarFormaGerenciamentoFinancasUsuario atualizarFormaGerenciamentoFinancasUsuario(UsuarioGateway usuarioGateway) {
+        return new AtualizarFormaGerenciamentoFinancasUsuario(usuarioGateway);
     }
 
     @Bean

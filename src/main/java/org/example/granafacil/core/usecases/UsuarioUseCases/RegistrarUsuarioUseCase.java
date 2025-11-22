@@ -1,15 +1,10 @@
 package org.example.granafacil.core.usecases.UsuarioUseCases;
 
 import org.example.granafacil.core.entities.Usuario;
-import org.example.granafacil.core.enums.FormaGerenciarFinancas;
-import org.example.granafacil.core.enums.ObjetivoPrincipal;
-import org.example.granafacil.core.enums.PerfilFinanceiro;
-import org.example.granafacil.core.exceptions.EmailJaCadastrado;
 
 import org.example.granafacil.core.gateways.PasswordEncoderGateway;
 import org.example.granafacil.core.gateways.TokenServiceGateway;
 import org.example.granafacil.core.gateways.UsuarioGateway;
-import org.example.granafacil.infraestructure.presentation.AutenticacaoController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
