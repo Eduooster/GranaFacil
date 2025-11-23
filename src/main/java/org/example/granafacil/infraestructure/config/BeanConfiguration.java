@@ -1,8 +1,10 @@
 package org.example.granafacil.infraestructure.config;
 
 import org.example.granafacil.core.gateways.PasswordEncoderGateway;
+import org.example.granafacil.core.gateways.PluggyGateway;
 import org.example.granafacil.core.gateways.TokenServiceGateway;
 import org.example.granafacil.core.gateways.UsuarioGateway;
+import org.example.granafacil.core.usecases.FinancaAuthUseCase.SincronizarFinancasUseCase;
 import org.example.granafacil.core.usecases.UsuarioUseCases.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,4 +38,6 @@ public class BeanConfiguration {
     public AtualizarPerfilFinanceiroUsuario atualizarPerfilFinanceiroUsuario(UsuarioGateway usuarioGateway) {
         return new AtualizarPerfilFinanceiroUsuario(usuarioGateway);
     }
+
+
 }
