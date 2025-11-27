@@ -1,15 +1,15 @@
 package org.example.granafacil.infraestructure.presentation;
 
-import org.example.granafacil.core.entities.Usuario;
-import org.example.granafacil.core.usecases.UsuarioUseCases.AtualizarFormaGerenciamentoFinancasUsuario;
-import org.example.granafacil.core.usecases.UsuarioUseCases.AtualizarObjetivoFinanceirolUsuario;
+import org.example.granafacil.core.domain.entities.Usuario;
+import org.example.granafacil.core.application.usecases.UsuarioUseCases.AtualizarFormaGerenciamentoFinancasUsuario;
+import org.example.granafacil.core.application.usecases.UsuarioUseCases.AtualizarObjetivoFinanceirolUsuario;
 
-import org.example.granafacil.core.usecases.UsuarioUseCases.AtualizarPerfilFinanceiroUsuario;
+import org.example.granafacil.core.application.usecases.UsuarioUseCases.AtualizarPerfilFinanceiroUsuario;
 
-import org.example.granafacil.infraestructure.dto.UsuarioDto.DefinirFormaGerenciamentorDto;
-import org.example.granafacil.infraestructure.dto.UsuarioDto.DefinirObjetivoFinanceiroDto;
-import org.example.granafacil.infraestructure.dto.UsuarioDto.DefinirPerfilFinanceiroDto;
-import org.example.granafacil.infraestructure.gateways.persistence.entites.UsuarioEntity;
+import org.example.granafacil.infraestructure.presentation.dto.UsuarioDto.DefinirFormaGerenciamentorDto;
+import org.example.granafacil.infraestructure.presentation.dto.UsuarioDto.DefinirObjetivoFinanceiroDto;
+import org.example.granafacil.infraestructure.presentation.dto.UsuarioDto.DefinirPerfilFinanceiroDto;
+import org.example.granafacil.infraestructure.persistence.entites.UsuarioEntity;
 import org.example.granafacil.infraestructure.security.TokenServiceAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

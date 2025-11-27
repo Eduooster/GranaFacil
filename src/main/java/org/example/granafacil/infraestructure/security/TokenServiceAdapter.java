@@ -3,8 +3,8 @@ package org.example.granafacil.infraestructure.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import org.example.granafacil.core.gateways.TokenServiceGateway;
-import org.example.granafacil.infraestructure.gateways.persistence.repositories.UsuarioRepository;
+import org.example.granafacil.core.application.gateways.TokenServiceGateway;
+import org.example.granafacil.infraestructure.persistence.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

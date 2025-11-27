@@ -1,11 +1,11 @@
 package org.example.granafacil.infraestructure.config;
 
-import org.example.granafacil.core.gateways.PasswordEncoderGateway;
-import org.example.granafacil.core.gateways.PluggyGateway;
-import org.example.granafacil.core.gateways.TokenServiceGateway;
-import org.example.granafacil.core.gateways.UsuarioGateway;
-import org.example.granafacil.core.usecases.FinancaAuthUseCase.SincronizarFinancasUseCase;
-import org.example.granafacil.core.usecases.UsuarioUseCases.*;
+import org.example.granafacil.core.application.gateways.*;
+import org.example.granafacil.core.application.services.OpenFinanceApplicationService;
+import org.example.granafacil.core.application.usecases.OpenFinanceUseCases.PluggyAuthUseCase;
+import org.example.granafacil.core.application.usecases.OpenFinanceUseCases.PluggyClientConnectionUseCase;
+import org.example.granafacil.core.application.usecases.OpenFinanceUseCases.PluggyClientItemUseCase;
+import org.example.granafacil.core.application.usecases.UsuarioUseCases.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,7 +19,7 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public RegistrarUsuarioUseCase registrarUsuarioUseCase(UsuarioGateway usuarioGateway,PasswordEncoderGateway passwordEncoderGateway,TokenServiceGateway tokenServiceGateway) {
+    public RegistrarUsuarioUseCase registrarUsuarioUseCase(UsuarioGateway usuarioGateway, PasswordEncoderGateway passwordEncoderGateway, TokenServiceGateway tokenServiceGateway) {
         return new RegistrarUsuarioUseCase(passwordEncoderGateway,usuarioGateway,tokenServiceGateway);
 
     }
@@ -39,5 +39,18 @@ public class BeanConfiguration {
         return new AtualizarPerfilFinanceiroUsuario(usuarioGateway);
     }
 
+    @Bean
+    public PluggyAuthUseCase pluggyAuthUseCase(PluggyGateway pluggyGateway) {
+        return new PluggyAuthUseCase(pluggyGateway);
+    }
 
+    @Bean
+    public PluggyClientConnectionUseCase pluggyClientConnectionUseCase(PluggyGateway pluggyGateway, PluggyAuthUseCase pluggyAuthUseCase) {
+        return new PluggyClientConnectionUseCase(pluggyGateway,pluggyAuthUseCase);
+    }
+
+    @Bean
+    public PluggyClientItemUseCase pluggyClientItemUseCase(UsuarioGateway usuarioGateway, ConexaoOpenFinanceGateway conexaoOpenFinanceGateway, InstituicaoFinanceiraGateway instituicaoFinanceiraGateway, OpenFinanceApplicationService openFinanceApplicationService) {
+        return new PluggyClientItemUseCase(usuarioGateway,conexaoOpenFinanceGateway,instituicaoFinanceiraGateway,openFinanceApplicationService);
+    }
 }

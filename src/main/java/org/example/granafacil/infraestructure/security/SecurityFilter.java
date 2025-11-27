@@ -4,10 +4,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.granafacil.core.entities.Usuario;
-import org.example.granafacil.infraestructure.gateways.persistence.entites.UsuarioEntity;
-import org.example.granafacil.infraestructure.gateways.persistence.repositories.UsuarioRepository;
-import org.example.granafacil.infraestructure.mapper.UsuarioMapper;
+import org.example.granafacil.infraestructure.persistence.entites.UsuarioEntity;
+import org.example.granafacil.infraestructure.persistence.repositories.UsuarioRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,6 +33,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         logger.info("entrando no doFilter");
+        logger.info(request.getHeader("Authorization"));
 
 
         var tokenJWT = recuperarToken(request);

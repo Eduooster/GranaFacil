@@ -1,29 +1,23 @@
 package org.example.granafacil.infraestructure.integrations.pluggy;
 
-import lombok.extern.slf4j.Slf4j;
-import org.example.granafacil.core.gateways.PluggyGateway;
-import org.example.granafacil.core.model.ItemResponse;
-import org.example.granafacil.infraestructure.integrations.pluggy.dto.AcessTokenDto;
-import org.example.granafacil.infraestructure.integrations.pluggy.dto.AcessTokenResponse;
-import org.example.granafacil.infraestructure.integrations.pluggy.dto.AuthRequest;
-import org.example.granafacil.infraestructure.integrations.pluggy.dto.AuthResponse;
-import org.example.granafacil.infraestructure.presentation.AutenticacaoController;
-import org.mapstruct.Qualifier;
+import org.example.granafacil.core.application.gateways.PluggyGateway;
+import org.example.granafacil.infraestructure.presentation.dto.pluggyDto.AcessTokenResponse;
+import org.example.granafacil.infraestructure.presentation.dto.pluggyDto.AuthRequest;
+import org.example.granafacil.infraestructure.presentation.dto.pluggyDto.AuthResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 
-@Component
+@Configuration
 public class PluggyAdapter implements PluggyGateway {
 
-    private final String baseUrl = "https://api.pluggy.ai";
-    String clientId = System.getenv("CLIENT_ID_PLUGGY");
-    String clientSecret = System.getenv("CLIENT_SECRET_PLUGGY");
-
     private final WebClient webClient;
+    private final String clientId = System.getenv("CLIENT_ID_PLUGGY");
+    private final String clientSecret = System.getenv("CLIENT_SECRET_PLUGGY");
+
     private static final Logger log = LoggerFactory.getLogger(PluggyAdapter.class);
 
     public PluggyAdapter(WebClient webClient) {
@@ -45,6 +39,8 @@ public class PluggyAdapter implements PluggyGateway {
                 .block();
 
 
+        log.info(response.toString());
+
 
 
         return response.apiKey();
@@ -61,13 +57,19 @@ public class PluggyAdapter implements PluggyGateway {
                 .retrieve()
                 .bodyToMono(AcessTokenResponse.class)
                 .block();
+        log.info("acess tken "+response.toString());
 
         return response.accessToken();
     }
 
     @Override
-    public ItemResponse getItem(String id) {
-        return null;
+    public String getItem() {
+        String apiKey = gerarApiKey();
+
+
+
+        return "";
     }
+
 
 }
